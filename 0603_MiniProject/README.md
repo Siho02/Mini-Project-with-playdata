@@ -4,7 +4,7 @@ https://ovenapp.io/project/Kd6I9082xeB997OvPEFDiipZtintCRGf#vWifT
 
 
 ### table relation image
-![MiniProjectTable02](https://user-images.githubusercontent.com/83528634/120614437-334ebe80-c492-11eb-9f77-f7b0386574f4.jpg)
+<img src="https://user-images.githubusercontent.com/83528634/120614437-334ebe80-c492-11eb-9f77-f7b0386574f4.jpg" width="300" height="300">
 
 SET TERMOUT OFF
 SET ECHO OFF
