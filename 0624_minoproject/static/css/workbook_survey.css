@@ -1,0 +1,50 @@
+@import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
+
+header {
+  background-color: #3f3f48;
+  padding: 5px;
+}
+div.underline {
+  position: relative;
+  width: 99%;
+  margin: 0px 2% 0px 0px;
+  padding: 5px 9px;
+  background-color: #527062;
+  border-radius: 0px;
+}
+div {
+  width: 45%;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "Poor Story", cursive;
+  background-color: white;
+}
+h1 {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 3%;
+  font-family: "KoPub Batang", serif;
+}
+h2 {
+  font-size: 25px;
+  font-weight: 100;
+  text-align: center;
+  font-family: "Poor Story", cursive;
+}
+body {
+  background-color: #dbcfc8;
+}
+#sub_btn {
+  background-color: #dbcfc8;
+}
+.relative {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  font-family: "Poor Story", cursive;
+}
+span.home_icorn {
+  background-color: #3f3f48;
+  cursor: pointer;
+}
