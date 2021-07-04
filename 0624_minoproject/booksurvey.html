@@ -1,0 +1,435 @@
+<!-- 일단 css와 js는 따로 파일 만들지 않고 현 html 파일에서 만들어서 완성시킨 후 따로 static파일을 만들어 정리해보겠습니다-->
+<!-- 각 설문 문항은 div 태그를 사용하여 코드를 구분하였습니다 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수학 문제집 설문조사</title>
+
+    <!-- 상업적 사용 가능한 구글 폰트 다운받는 링크 -->
+    <link href="https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Kirang+Haerang&family=Yeon+Sung&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+
+    <!-- 아이콘 링크-->
+    <script src="https://kit.fontawesome.com/9b205acb71.js" crossorigin="anonymous"></script>
+
+    <!-- css 파일 링크-->
+    <link rel="stylesheet" href="../static/css/workbook_survey.css">
+
+</head>
+
+<body>
+    <header>
+        <span class="home_icorn">
+            <i class="fas fa-home" style="font-size:400%; margin: 1%; color:white" onclick="location.href='.';"></i>
+        </span>
+    </header>
+    <div class="underline"></div>
+    <h1 style="margin-bottom: 20px;">수학 문제집 설문조사</h1>
+    <h2 style="margin-bottom: 50px;">각 문항을 읽고 답변을 클릭해주세요</h2>
+
+    <form id="form1">
+        <div class="relative"><br>
+            <b>1-1. 원하는 문제집은 초등, 중등, 고등 중 어디에 해당되나요? </b> 
+            <br><br>
+
+            <input type="radio" id="element" name="school_register" value="초">
+            <label for="element">① 초등</label><p>
+            
+            <input type="radio" id="middle" name="school_register" value="중">   
+            <label for="middle">② 중등</label><p>
+            
+            <input type="radio" id="high" name="school_register" value="고">    
+            <label for="high">③ 고등</label><br>
+            
+        </div>
+        <div id="sub_btn" style="position: relative; margin-left: auto; margin-right: auto; width: 35px;">
+            <input type="button"  value="제출" onclick="school_pick(this.form)">
+        </div>
+        </div>
+        <br><br><br>
+    </form>
+
+    <form>
+        <div class="relative"><br>
+            <b style="font-size: 18px;" >1-2. 1-1에서 초등을 선택한 경우, 원하는 문제집의 학년은 다음 중 어디에 해당되나요?</b><p>
+        
+            <input type="radio" id="ele_grade1" name="element_grade_detail" value="1">
+            <label for="ele_grade1">① 1학년</label><p>
+               
+            <input type="radio" id="ele_grade2" name="element_grade_detail" value="2">   
+            <label for="ele_grade2">② 2학년</label><p>
+             
+            <input type="radio" id="ele_grade3" name="element_grade_detail" value="3">    
+            <label for="ele_grade3">③ 3학년</label><p>
+        
+            <input type="radio" id="ele_grade4" name="element_grade_detail" value="4">    
+            <label for="ele_grade4">④ 4학년</label><p>
+        
+            <input type="radio" id="ele_grade5" name="element_grade_detail" value="5">    
+            <label for="ele_grade5">⑤ 5학년</label><p>
+            
+            <input type="radio" id="ele_grade6" name="element_grade_detail" value="6">    
+            <label for="ele_grade6">⑥ 6학년</label><br>
+        </div>    
+        <br>
+        <div class="relative"><br>
+            <b>1-3. 1-1에서 중등을 선택한 경우, 원하는 문제집의 학년은 다음 중 어디에 해당되나요?</b> <br><br>
+        
+            <input type="radio" id="mid_grade1" name="middle_grade_detail" value="1" >
+            <label for="mid_grade1">① 1학년</label><p>
+            
+            <input type="radio" id="mid_grade2" name="middle_grade_detail" value="2">   
+            <label for="mid_grade2">② 2학년</label><p>
+            
+            <input type="radio" id="mid_grade3" name="middle_grade_detail" value="3">    
+            <label for="mid_grade3">③ 3학년</label><br>
+        </div>
+        <br>
+        <div class="relative"><br>
+        <b>1-4. 1-1에서 고등을 선택한 경우, 원하는 문제집의 학년은 다음 중 어디에 해당되나요?</b> <p>
+
+            <input type="radio" id="high_grade1" name="high_grade_detail" value="1">
+            <label for="high_grade1">① 1학년</label><p>
+               
+            <input type="radio" id="high_grade2" name="high_grade_detail" value="2">   
+            <label for="high_grade2">② 2학년</label><p>
+             
+            <input type="radio" id="high_grade3" name="high_grade_detail" value="3">    
+            <label for="high_grade3">③ 3학년(N수생 포함)</label>
+            <br>
+        </div>
+        <br>
+        <div class="relative"><br>
+            <b>1-5. 1-1에서 고등을 선택한 경우, 문제집 구입 용도는 아래 중 어디에 해당되나요?</b> <br><br>
+
+            <input type="radio" id="scholl_records" name="math_purpose" value="내신용">
+            <label for="scholl_records">① 내신용</label><p>
+            
+            <input type="radio" id="sat" name="math_purpose" value="수능용">   
+            <label for="sat">② 수능용</label><br>
+        </div>
+        <div id="sub_btn" style="position: relative; margin-left: auto; margin-right: auto; width: 35px;">
+            <input type="button"  value="제출" onclick="grade_pick(this.form)">
+        </div>
+        </div><br><br>
+    </form>
+
+    <form>
+        <div class="relative"><br>
+            <b>2. 수학 성적은 상, 중, 하 중에서 어디에 해당되나요?</b> <p>
+
+            <input type="radio" id="math_grade_high" name="math_grade" value="상">
+            <label for="math_grade_high">① 상</label><p>
+            
+            <input type="radio" id="math_grade_middle" name="math_grade" value="중">   
+            <label for="math_grade_middle">② 중</label><p>
+            
+            <input type="radio" id="math_grade_low" name="math_grade" value="하">   
+            <label for="math_grade_low">③ 하</label><br>
+        </div>
+        <br>
+        <div class="relative"><br>
+            <b>3. 수학 교과서 출판사는 어디인가요?</b><p>
+
+            <input type="radio" id="genius" name="publisher" value="천재교육">
+            <label for="genius">① 천재교육</label><p>
+            
+            <input type="radio" id="stepping_stone" name="publisher" value="디딤돌">   
+            <label for="stepping_stone">② 디딤돌</label><p>
+            
+            <input type="radio" id="shinsago" name="publisher" value="신사고">   
+            <label for="shinsago">③ 신사고</label><p>
+        
+            <input type="radio" id="soar_edu" name="publisher" value="비상교육">   
+            <label for="soar_edu">④ 비상교육</label><br>
+        </div>
+        <br>
+        <div class="relative"><br>
+            <b>4. 구입하고자 하는 수학 문제집이 아래 중 어디에 해당되나요?</b><p>
+
+            <input type="radio" id="concept_description" name="workbook_type" value="개념서">
+            <label for="concept_description">① 개념서(이론+문제)</label><p>
+            
+            <input type="radio" id="self_teaching_book" name="workbook_type" value="자습서">   
+            <label for="self_teaching_book">② 자습서(문제만)</label><p>
+            
+            <input type="radio" id="previous_workbook" name="workbook_type" value="기출문제집">   
+            <label for="previous_workbook">③ 기출 문제집(내신 또는 수능)</label><br>
+        </div>
+        <br>
+        <div class="relative"><br>
+            <b>5. 책 내부 디자인에 대해 어느 쪽을 선호하나요?</b><p>
+
+            <input type="radio" id="illust_and_colorful" name="workbook_design" value="컬러풀">
+            <label for="illust_and_colorful">① 컬러풀한</label><p>
+            
+            <input type="radio" id="less_illust_and_colorful" name="workbook_design" value="단색">   
+            <label for="less_illust_and_colorful">② 단색의(흑백의)</label><p>
+            
+            <input type="radio" id="black_and_white" name="workbook_design" value="상관없음">   
+            <label for="black_and_white">③ 상관없음</label><br>
+        </div>
+        <br>
+        <div class="relative"><br>
+            <b>6. 구입하고자 하는 수학 문제집의 용도는 무엇인가요?</b><p>
+
+            <input type="radio" id="previous" name="workbook_use" value="선행">
+            <label for="previous">① 선행학습용</label><p>
+            
+            <input type="radio" id="review" name="workbook_use" value="복습">   
+            <label for="review">② 복습용</label><br>
+        </div>
+        <div id="sub_btn" style="position: relative; margin-left: auto; margin-right: auto; width: 35px; margin-bottom: 50px; margin-top: 10px; ">
+            <input type="button" value="제출" onclick="pick_options(this.form)">
+            <input type = "button" value="결과 확인" class="relative" onclick="select_book()">
+        </div>
+        </div>
+    </form>
+ 
+    <script>
+        function school_pick(form) {
+            alert("제출되었습니다. 계속해서 설문지 작성을 완료해주세요 :)")
+            for (var i=0; i < form.school_register.length; i++){
+                if(form.school_register[i].checked){
+                    school=form.school_register[i].value;
+                    break;
+                }
+                else{
+                    school=""
+                }
+            }
+            if (school == ""){
+                alert("학적 선택을 해주세요!!")
+            }
+            return school;
+        };
+        
+        function grade_pick(form){
+            alert("제출되었습니다. 계속해서 설문지 작성을 완료해주세요 :)")        
+            if (school == "초"){
+                exam="내신용"
+                for (var i=0; i < form.element_grade_detail.length; i++){
+                    if(form.element_grade_detail[i].checked){
+                        grade=form.element_grade_detail[i].value;
+                        break;
+                    }
+                }                
+            } else if (school == "중"){
+                exam="내신용"
+                for (var i=0; i < form.middle_grade_detail.length; i++){
+                    if(form.middle_grade_detail[i].checked){
+                        grade=form.middle_grade_detail[i].value;
+                    }
+                }
+            } else {
+                for (var i=0; i < form.high_grade_detail.length; i++){
+                    if(form.high_grade_detail[i].checked){
+                        grade=form.high_grade_detail[i].value
+                    }
+                }
+                for (var i=0; i < form.math_purpose.length; i++){
+                    if(form.math_purpose[i].checked){
+                        exam=form.math_purpose[i].value
+                    }
+                }
+            }
+            
+            return grade, exam;
+        };
+
+        function pick_options(form){
+            alert("설문조사 완료! 수고하셨습니다 :)")
+                for (var i=0; i < form.math_grade.length; i++){
+                    if(form.math_grade[i].checked){
+                        m_grade=form.math_grade[i].value;
+                    }
+                }
+                for (var i=0; i < form.publisher.length; i++){
+                    if(form.publisher[i].checked){
+                        b_publisher=form.publisher[i].value;
+                    }
+                }
+                for (var i=0; i < form.workbook_type.length; i++){
+                    if(form.workbook_type[i].checked){
+                        b_type=form.workbook_type[i].value;
+                    }
+                }
+                for (var i=0; i < form.workbook_design.length; i++){
+                    if(form.workbook_design[i].checked){
+                        b_design=form.workbook_design[i].value;
+                    }
+                }
+                for (var i=0; i < form.workbook_use.length; i++){
+                    if(form.workbook_use[i].checked){
+                        b_use=form.workbook_use[i].value;
+                    }
+                }
+                return m_grade, b_publisher, b_type, b_design, b_use;
+        }
+        
+        var new_src 
+        function select_book(){
+            if (school == '고'){
+                if (exam == "수능용"){
+                    if (m_grade == "상"){
+                        alert("EBS 전지적 출제자 시점은 어떤가요?");
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/620/x9788954754620.jpg'
+                    }
+                    else if (m_grade == "중"){
+                        alert("EBS 올림포스는 어떤가요?")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/761/x9788954743761.jpg'
+                    }
+                    else {
+                        alert("EBS 수학의 왕도로 시작해보아요!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/501/x9788954743501.jpg'
+                    }
+                }
+                else {
+                    if (m_grade == "상"){
+                        if (b_publisher == "비상"){
+                            alert("만렙 PM은 어떨까요?")
+                            new_src='http://image.kyobobook.co.kr/images/book/xlarge/275/x9791164744275.jpg'
+                        }
+                        else if (b_publisher == "디딤돌"){
+                            alert("씨리얼은 어떨까요?")
+                            new_src='http://image.kyobobook.co.kr/images/book/xlarge/703/x9788926153703.jpg'
+                        }
+                        else {
+                            alert("일품은 어때요?")
+                            new_src='http://image.kyobobook.co.kr/images/book/xlarge/393/x9788928330393.jpg'
+                        }
+                    }
+                    else if (m_grade == "중"){
+                        if (b_publisher == "천재"){
+                            alert("유형 해결의 법칙이 좋을 것 같아요!")
+                            new_src='http://image.kyobobook.co.kr/images/book/xlarge/940/x9791125935940.jpg'
+                        }
+                        else if (b_publisher == "신사고"){
+                            alert("개념쎈을 풀어볼까요?")
+                            new_src='http://image.kyobobook.co.kr/images/book/xlarge/027/x9788928330027.jpg'
+                        }
+                        else if (b_publisher == "비상"){
+                            alert("만렙 AM으로 기초부터 심화까지")
+                            new_src='http://image.kyobobook.co.kr/images/book/xlarge/395/x9791162273395.jpg'
+                        }
+                        else {
+                            alert("내공의 힘으로 상위권으로!")
+                            new_src='http://image.kyobobook.co.kr/images/book/xlarge/937/x9791162273937.jpg'
+                        }
+                    }
+                    else {
+                        if (b_publisher == "천재"){
+                            alert("개념 해결의 법칙이 좋을 것 같아요!")
+                            new_src='http://image.kyobobook.co.kr/images/book/xlarge/094/x9791125948094.jpg'
+                        }
+                        else if (b_publisher == "신사고"){
+                            alert("개념쎈을 풀어볼까요?")
+                            new_src='http://image.kyobobook.co.kr/images/book/xlarge/027/x9788928330027.jpg'
+                        }
+                        else {
+                            alert("내공의 힘으로 기초부터 탄탄히!")
+                            new_src='http://image.kyobobook.co.kr/images/book/xlarge/937/x9791162273937.jpg'
+                        }
+                    }
+                }
+            }
+            else if (school == "중"){
+                if (m_grade == "상"){
+                    if (b_publisher == "신사고") {
+                        alert("일품 수학으로 만점 도전!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/362/x9788928330362.jpg'
+                    }
+                    else if (b_publisher == "디딤돌") {
+                        alert("최상위 수학으로 만점 도전!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/985/x9788926157985.jpg'
+                    }
+                    else {
+                        alert("투탑으로 최상위권을 향해!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/017/x9788926153017.jpg'
+                    }
+                }
+                else if (m_grade == '중'){
+                    if (b_publisher=="비상") { 
+                        alert("개념+유형으로 상위권에 도전!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/568/x9791166091568.jpg'
+                    }
+                    else if (b_publisher == "천재") {
+                        alert("체크체크로 꼼꼼하게!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/622/x9791125950622.jpg'
+                    }
+                    else {
+                        alert("쎈으로 유형별 문제 쎄게 잡고가기!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/361/x9788928324361.jpg'
+                    }
+                }
+                else {
+                    if (b_publisher == "천재") {
+                        alert("체크체크로 꼼꼼하게!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/427/x9791125946427.jpg'
+                    }
+                    else if (b_publisher == "비상") {
+                        alert("교과서 개념잡기로 꽉 잡고 가기!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/053/x9791162272053.jpg'
+                    }
+                    else {
+                        alert("우공비로 공부 비법을 잡아요!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/864/x9788928331864.jpg'
+                    }
+                }
+            }
+            else {
+                if (m_grade == '상'){
+                    if (b_publisher == "디딤돌" || b_publisher == "신사고"){
+                        alert("수학 좀 한다면? 수학 좀 한다면!으로 확실하게")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/883/x9788926158883.jpg'
+                    }
+                    else {
+                        alert("일등 수학으로 누구보다 빠르게!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/914/x9791125943914.jpg'
+                    }
+                }
+                else {
+                    if (b_publisher == "디딤돌"){
+                        alert("기본+응용으로 꽉 잡기!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/453/x9788926159453.jpg'
+                    }
+                    else if (b_publisher == "신사고"){
+                        alert("쎈으로 완벽하게!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/560/x9788928327560.jpg'
+                    }
+                    else if (b_publisher == "천재"){
+                        alert("해법수학으로 수학의 해법 찾기!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/898/x9791125960898.jpg'
+                    }
+                    else {
+                        alert("개념+유형으로 두마리 토끼를!")
+                        new_src='http://image.kyobobook.co.kr/images/book/xlarge/141/x9791166090141.jpg'
+                    }
+                }
+            }
+            console.log(new_src);
+           
+            return OnloadImg(new_src);
+        }
+
+        function OnloadImg(url){
+            console.log(url);
+            var imgObj = new Image();
+            imgObj.src = url;
+            imageWin = window.open("", "profile_popup", "width=" + imgObj.width + "px, height=" + imgObj.height + "px"); 
+            imageWin.document.write("<html><body style='margin:0'>"); 
+            imageWin.document.write("<a href=javascript:window.close()><img src='" + imgObj.src + "' border=0></a>"); 
+            imageWin.document.write("</body><html>"); 
+            imageWin.document.title = imgObj.src;
+        }
+
+    </script>
+    
+
+</body>
+</html>
