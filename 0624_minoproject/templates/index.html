@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제집이 뭐가 조태익?</title>
+    
+    <link rel="stylesheet" href="../static/css/index.css">
+
+</head>
+
+<body style="font-family:'KoPub Batang', serif;">
+    <header>
+        <table align="center" cellpadding="0" cellsapcing="0" width= "100%">
+            <tbody>
+                <tr>
+                    <td>
+                        <h1>문제집이 뭐가 조태익?</h1>
+                    </td>
+                    <td class="loginbox">
+                        <!--6/23 추가-->
+                        <div id="loginView" style="display:block;">
+                            서비스 이용은 로그인 후 가능합니다.<br><br>
+                            
+                            <label>ID :&nbsp;&nbsp;</label>&nbsp;
+                            <input type="text" id="user_id" name="user_id"><br>
+                    
+                            <label>PW :</label>&nbsp;
+                            <input type="password" id="user_pw" name="user_pw"><br><br>
+                    
+                            <button class="button" onclick="login2()">log-in</button>
+                        </div>
+    
+                        <span id="loginboxchild"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </header>
+    
+    <nav>
+        <table class=nav >
+            <a href="booksurvey" style="text-decoration: none; color: white;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <tr>나에게 맞는 문제집 찾기</tr></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+            <a href="qlist" style="text-decoration: none; color: white;">
+                <tr>수학 질문 게시판</tr></a>
+        </table>
+    </nav>
+    <div class="underline"></div>
+
+    <!-- 추천 문제집 구현 영역-->
+    <div class="section">
+        <div class="body_left">
+            <div class="content_center" >
+                <div class="recom_bok">
+                    <p> 이번주 추천 문제집 </p>
+                </div>
+                <div style="overflow: hidden;"> 
+                    <div class="container">
+                        <div class="inner">
+                            <img src="http://image.kyobobook.co.kr/images/book/large/761/l9788954743761.jpg">
+                        </div>
+                        <div class="inner">
+                            <img src="http://image.kyobobook.co.kr/images/book/large/362/l9788928330362.jpg">
+                        </div>
+                        <div class="inner">
+                            <img src="http://image.kyobobook.co.kr/images/book/large/864/l9788928331864.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="btnclass">
+                    <button class="btn1">1</button>
+                    <button class="btn2">2</button> 
+                    <button class="btn3">3</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 질문 게시글 조회 구현-->
+        <div class="body_right">
+            <iframe src="qlist" frameborder="0" style="height: 500px; width: 100%;" ></iframe>
+        </div>
+    </div>
+    <br>
+
+    <!-- <div>
+        <div class="col-50">
+            <input type="button" id="brbutton" value="책 추천" onclick="acyncMovePage('/templates/bookRecommend.html')">
+        </div>
+        <div class="col-50">
+        </div>
+    </div> -->
+
+    <script>
+        /*책 추천 슬라이드 버튼 구현*/
+        document.querySelector('.btn1').addEventListener('click', function(){
+            document.querySelector('.container').style.transform='translate(0vw)';
+        });
+        document.querySelector('.btn2').addEventListener('click', function(){
+            document.querySelector('.container').style.transform='translate(-100vw)';
+        });
+        document.querySelector('.btn3').addEventListener('click', function(){
+            document.querySelector('.container').style.transform='translate(-200vw)';
+        });
+
+
+        //  6/23 추가
+        function login2(){
+            const xhttp=new XMLHttpRequest();
+
+            xhttp.onreadystatechange=function (){
+
+                if (this.readyState == 4 && this.status == 200){
+                    console.log("=======");
+
+                    all=JSON.parse(this.responseText);
+                    console.log(all.access_token);
+                    localStorage.setItem("jwt-auth-token", all.access_token);
+                    alert("로그인 성공");
+
+                    document.getElementById("loginboxchild").innerHTML=`환영합니다.<br><br><button>log-out</button>`;
+                    con=document.getElementById("loginView");
+                    con.style.display='none';
+                }
+            };
+
+            xhttp.open("POST", "login");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("user_id="+document.getElementById("user_id").value+"&user_pw="+document.getElementById("user_pw").value);
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글 작성하기</title>
+    <script>
+        function move(url){
+            location.href=url;
+        }
+
+        function boardWriteCheck(){
+            var form=document.BoardWriteForm;
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <table summary="글 작성 테이블">
+        <form name="BoardWriteForm" method="post" action="#" onsubmit="return boardWriteCheck();">
+            <colgroup>
+                <col width="20%">
+                <col width="80%">
+            </colgroup>
+        
+            <table summary="테이블 구성">
+                <caption>질문 작성하기</caption>
+                <tr>
+                    <td><select name="학년" id="grade">
+                    <option value="초1">초1</option>
+                    <option value="초2">초2</option>
+                    <option value="초3">초3</option>
+                    <option value="초4">초4</option>
+                    <option value="초5">초5</option>
+                    <option value="초6">초6</option>
+                    <option value="중1">중1</option>
+                    <option value="중2">중2</option>
+                    <option value="중3">중3</option>
+                    <option value="고1">고1</option>
+                    <option value="고2">고2</option>
+                    <option value="고3">고3</option>
+                    </select></td>
+
+                    <td><input type="text" name="title" id="title" placeholder="제목" size="100"></td>
+            
+                </tr>
+                <tr>
+                    <td>내용</td>
+                    <td><textarea name="content" id="content" cols="100" rows="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div align="right">
+                            <input type="submit" value="등록하기" onclick="">
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </table>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        @import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <title>질문 게시판</title>
+</head>
+
+<body style="font-family:'KoPub Batang', serif;">
+
+    <!-- <input type="text" value='{{data}}' id="dataView"> -->
+
+
+    <h1>질문 게시판</h1>
+    <br>
+    <hr color="grey"><br>
+    <div id="qlist"></div>
+
+    <button align="center" onclick="location.href='insertquestion'">글쓰기</button>
+
+    <script>
+
+        let data='{{data}}';
+        let replacedata=data.replace(/\&#34;/g, '\"');
+        jdata=JSON.parse(replacedata);
+        // alert(typeof(jdata));
+
+        tab=`
+                <table border="1">
+                    <tr><th>질문번호</th><th>학년</th><th>제목</th><th>작성자</th></tr>`;
+
+        let qsid;
+        let grade;
+        let title;
+        let mname;
+
+        for (no in jdata) {
+            qsid=jdata[no].qsid;
+            grade=jdata[no].grade;
+            title=jdata[no].title;
+            mname=jdata[no].mname;
+            tab=tab + `<tr>
+                        <td>${qsid}</td>
+                        <td>${grade}</td>
+                        <td><a href="qsid${qsid}">${title}</a></td>
+                        <td>${mname}</td>
+                    </tr>`;
+        }
+        tab=tab + `</table>`;
+        document.getElementById("qlist").innerHTML=tab;
+    </script>
+
+</body>
+
+</html>

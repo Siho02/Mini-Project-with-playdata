@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="question"></div>
+
+    <script>
+        let data="{{data}}";
+        let replacedata=data.replace(/\&#34;/g, '\"');
+        jdata=JSON.parse(replacedata);
+
+        let title=jdata.title;
+        let content=jdata.content;
+        let mname=jdata.mname;
+
+
+        tab=`<table>
+                    <tr><td><h3>${title}</td><td>${mname}</td></h3></tr>
+                    <tr><td>${content}</td></tr>
+                </table>`;
+
+        document.getElementById("question").innerHTML=tab;
+
+    </script>
+</body>
+
+</html>
