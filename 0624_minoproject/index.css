@@ -1,0 +1,81 @@
+@import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
+
+div.underline {
+  position: relative;
+  width: 99%;
+  margin: 0px 2% 0px 0px;
+  padding: 5px 9px;
+  background-color: #527062;
+  border-radius: 0px;
+}
+h1 {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 3%;
+  font-family: "KoPub Batang", serif;
+}
+div {
+  font-family: "KoPub Batang", serif;
+}
+.loginbox {
+  margin-right: 5px;
+  margin-left: 20px;
+  padding-right: 30px;
+  font-family: "KoPub Batang", serif;
+}
+.button {
+  font-family: "KoPub Batang", serif;
+}
+.col-50 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  height: 100%;
+}
+tbody {
+  background-color: white;
+}
+nav {
+  background-color: #3f3f48;
+  padding: 10px;
+  text-align: left;
+  color: white;
+  font-family: "KoPub Batang", serif;
+}
+.body_left {
+  position: relative;
+  width: 40%;
+  float: left;
+  background-color: white;
+}
+.body_right {
+  position: relative;
+  width: 60%;
+  float: right;
+  background-color: white;
+}
+.container {
+  width: 300vw;
+  /* transform: translate(-100vw); */
+  transition: transform 0.5s;
+  margin-left: 40%;
+  margin-top: -2%;
+}
+.inner {
+  width: 100vw;
+  float: left;
+}
+.recom_bok {
+  margin-top: 3%;
+  margin-left: 39%;
+  font-size: 26px;
+  font-weight: 900;
+}
+.inner img {
+  width: 10%;
+}
+.btnclass {
+  margin-left: 46%;
+  margin-top: 1%;
+  margin-bottom: 10%;
+}
