@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #buttons button{
+            border: 1px solid skyblue;
+            background-color: peachpuff;
+            color: black;
+            padding: 5px;
+        } 
+        #buttons button:hover{
+            color: white;
+            background-color: plum;
+        }
+    </style>
+    <title>우리짱</title>
+</head>
+<body>
+    <h1 align='center'>유튜브 랭킹 시각화</h1>
+    <hr color="black"><br>
+    <div id="buttons" align='center'>
+        <button onclick="getdata()">실시간 정보</button> &#32;&#32;&#32;
+        <button onclick="visual1()">카테고리별 구독자수</button>&#32;&#32;&#32;
+        <button onclick="visual2()">카테고리별 평균 조회수</button>&#32;&#32;&#32;
+        <button onclick="visual3()">카테고리별 채널 개수</button>&#32;&#32;&#32;
+    </div>
+    <div id="plot" align='center'></div>
+
+    <script>
+        function getdata(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("성공")
+                }
+            };
+            xhttp.open("GET", "getdata");
+            xhttp.send();
+        }
+
+        function visual1(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("plot").innerHTML = '<img src="./static/img/plot1.png" width=700 height=700>'
+                    alert("성공")
+                }
+            };
+            xhttp.open("GET", "g1");
+            xhttp.send();
+        }
+
+        function visual2(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("plot").innerHTML = '<img src="./static/img/plot2.png" width=700 height=700>'
+                    alert("성공")
+                }
+            };
+            xhttp.open("GET", "g2");
+            xhttp.send();
+        }
+
+        function visual3(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("plot").innerHTML = '<img src="./static/img/plot3.png" width=700 height=700>'
+                    alert("성공")
+                }
+            };
+            xhttp.open("GET", "g3");
+            xhttp.send();
+        }
+
+    </script>
+</body>
+</html>
